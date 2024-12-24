@@ -1,0 +1,19 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+
+    /* This size is hard coded for only 16x16 grid and each item is 50px wide */
+    width: 800px; 
+}
+
+.grid-item {
+    border: solid 1px black;
+    width: 50px;
+}
