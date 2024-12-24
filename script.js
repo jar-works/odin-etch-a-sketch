@@ -1,3 +1,5 @@
+const gridContainer = createGridContainer();
+
 function createGridContainer(rows, columns) {
     const gridContainer = document.createElement("div");
     gridContainer.classList.add("grid-container");
@@ -10,7 +12,5 @@ function createGridContainer(rows, columns) {
     gridContainer.style.height = "auto";
 
     document.body.appendChild(gridContainer);
-    console.log("Added container");
+    return gridContainer;
 }
-
-createGridContainer();
