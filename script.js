@@ -1,7 +1,7 @@
-const gridContainer = createGridContainer(16, 16);
+const gridContainer = createGridContainer();
 createGridItems(16, 16);
 
-function createGridContainer(rows, columns) {
+function createGridContainer() {
     const gridContainer = document.createElement("div");
     gridContainer.classList.add("grid-container");
     gridContainer.id = "gridContainer";
