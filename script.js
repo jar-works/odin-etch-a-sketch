@@ -16,7 +16,9 @@ function createGridItems(rows, columns) {
         return;
     }
 
-    for (let i = 0; i < rows * columns; i++) {
+    const size = rows * columns;
+
+    for (let i = 0; i < size; i++) {
         const gridItem = document.createElement("div");
         gridItem.classList.add("grid-item");
 
