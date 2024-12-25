@@ -1,6 +1,7 @@
 const gridContainerSize = 900;
 const gridContainer = createGridContainer();
-createGridItems(50, 50);
+let currentGridDivs = [];
+createGridItems(16, 16);
 
 function createGridContainer() {
     const gridContainer = document.createElement("div");
@@ -19,7 +20,6 @@ function createGridItems(rows, columns) {
         return;
     }
 
-    let divsCreated = [];
     const gridSize = rows * columns;
     const gridItemSize = gridContainerSize / rows;
 
@@ -32,10 +32,10 @@ function createGridItems(rows, columns) {
         gridItem.style.height = gridItemSize + "px";
 
         gridContainer.appendChild(gridItem);
-        divsCreated[i] = gridItem;
+        currentGridDivs[i] = gridItem;
     }
 
-    addHoverEffectToDivs(divsCreated);
+    addHoverEffectToDivs(currentGridDivs);
 }
 
 function addHoverEffectToDivs(divs = []) {
@@ -43,10 +43,25 @@ function addHoverEffectToDivs(divs = []) {
         element.addEventListener("mouseenter", () => {
             element.style.backgroundColor = "red";
         });
-
-        // Not needed in specifications (afterall)
-        // element.addEventListener("mouseleave", () => {
-        //     element.style.backgroundColor = "";
-        // });
     });
+}
+
+const customSizeButton = document.querySelector("#customSize");
+
+customSizeButton.addEventListener("click", () => {
+    let userInput = prompt("Enter custom size for new grid (less than 100)");
+    if (userInput > 100) {
+        userInput = 100;
+    } else if (userInput == 0 || userInput == null) {
+        return;
+    }
+
+    removeOldGrid();
+    createGridItems(userInput, userInput);
+})
+
+function removeOldGrid() {
+    currentGridDivs.forEach(gridItem => {
+        gridItem.remove();
+    })
 }
