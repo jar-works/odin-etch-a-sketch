@@ -16,6 +16,7 @@ function createGridItems(rows, columns) {
         return;
     }
 
+    let divsCreated = [];
     const size = rows * columns;
 
     for (let i = 0; i < size; i++) {
@@ -23,5 +24,20 @@ function createGridItems(rows, columns) {
         gridItem.classList.add("grid-item");
 
         gridContainer.appendChild(gridItem);
+        divsCreated[i] = gridItem;
     }
+
+    addHoverEffectToDivs(divsCreated);
+}
+
+function addHoverEffectToDivs(divs = []) {
+    divs.forEach(element => {
+        element.addEventListener("mouseenter", () => {
+            element.style.backgroundColor = "red";
+        });
+
+        element.addEventListener("mouseleave", () => {
+            element.style.backgroundColor = "";
+        });
+    });
 }
