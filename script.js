@@ -1,10 +1,13 @@
+const gridContainerSize = 900;
 const gridContainer = createGridContainer();
-createGridItems(16, 16);
+createGridItems(50, 50);
 
 function createGridContainer() {
     const gridContainer = document.createElement("div");
     gridContainer.classList.add("grid-container");
     gridContainer.id = "gridContainer";
+
+    gridContainer.style.width = gridContainerSize + "px";
 
     document.body.appendChild(gridContainer);
     return gridContainer;
@@ -17,11 +20,16 @@ function createGridItems(rows, columns) {
     }
 
     let divsCreated = [];
-    const size = rows * columns;
+    const gridSize = rows * columns;
+    const gridItemSize = gridContainerSize / rows;
 
-    for (let i = 0; i < size; i++) {
+    for (let i = 0; i < gridSize; i++) {
         const gridItem = document.createElement("div");
         gridItem.classList.add("grid-item");
+
+        // Dynamic size option
+        gridItem.style.width = gridItemSize + "px";
+        gridItem.style.height = gridItemSize + "px";
 
         gridContainer.appendChild(gridItem);
         divsCreated[i] = gridItem;
