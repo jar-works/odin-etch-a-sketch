@@ -36,8 +36,9 @@ function addHoverEffectToDivs(divs = []) {
             element.style.backgroundColor = "red";
         });
 
-        element.addEventListener("mouseleave", () => {
-            element.style.backgroundColor = "";
-        });
+        // Not needed in specifications (afterall)
+        // element.addEventListener("mouseleave", () => {
+        //     element.style.backgroundColor = "";
+        // });
     });
 }
