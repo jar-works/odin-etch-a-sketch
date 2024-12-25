@@ -41,7 +41,11 @@ function createGridItems(rows, columns) {
 function addHoverEffectToDivs(divs = []) {
     divs.forEach(element => {
         element.addEventListener("mouseenter", () => {
-            element.style.backgroundColor = "red";
+            const redValue = Math.random() * 256;
+            const greenValue = Math.random() * 256;
+            const blueValue = Math.random() * 256;
+
+            element.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
         });
     });
 }
